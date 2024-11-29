@@ -58,7 +58,7 @@ class Boton extends StatelessWidget {
     return GestureDetector(
       
       onTap: () {
-        Navigator.pushReplacementNamed(context, ruta);
+        Navigator.pushNamed(context, ruta);
       },
       child: Container(
         height: 100,
