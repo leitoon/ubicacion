@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ubicacion/screens/historial.dart';
 import 'package:ubicacion/screens/screens.dart';
 
 void main() {
@@ -22,6 +23,10 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home', // Verifica el estado y establece la ruta inicial
         routes: {
           'home': (_) => HomeScreen(),
+          'amigos': (_) => AmigosScreen(),
+          'historial': (_) => HistorialScreen(),
+          'ubimanual': (_) => UbimanualScreen(),
+          'ubifoto': (_) => UbiFotoScreen(),
         },
     );
   }
