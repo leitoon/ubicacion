@@ -22,3 +22,21 @@ Este proyecto permite gestionar ubicaciones y asignar órdenes a amigos, con var
 1. **Instalación**: Clona el repositorio en tu máquina local.
 2. **Dependencias**: Asegúrate de tener las dependencias necesarias instaladas ejecutando `flutter pub get`.
 3. **Ejecuta la aplicación**: Puedes ejecutar la aplicación utilizando el comando `flutter run`.
+
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/user-attachments/assets/ffb8907a-2351-41d2-99a7-f7ca11e21efa" alt="simulator screenshot" width="300"/>
+</div>
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/user-attachments/assets/59e905cb-d302-4014-87a1-ce186de56edf" alt="simulator screenshot" width="300"/>
+</div>
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/user-attachments/assets/ce6e4896-f6b3-416f-9cde-81045c875e9a" alt="simulator screenshot" width="300"/>
+</div>
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/user-attachments/assets/f3461bb5-f4e4-4e45-84cb-d52a9f2fab62" alt="simulator screenshot" width="300"/>
+</div>
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/user-attachments/assets/05ad7b88-d031-40c5-b23f-e660c5196218" alt="simulator screenshot" width="300"/>
+</div>
+
+
