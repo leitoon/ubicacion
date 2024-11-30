@@ -14,7 +14,12 @@ class Amigo {
     required this.foto,
     required this.ordenesAsignadas,
   });
+
+  void agregarOrden(String orden) {
+    ordenesAsignadas.add(orden);
+  }
 }
+
 
 final List<Amigo> amigos = [
   Amigo(
@@ -23,7 +28,7 @@ final List<Amigo> amigos = [
     email: 'juan.perez@example.com',
     numeroCelular: '+573001234567',
     foto: 'https://via.placeholder.com/150',
-    ordenesAsignadas: ['Orden 1', 'Orden 2'],
+    ordenesAsignadas: [],
   ),
   Amigo(
     nombre: 'Ana',
@@ -31,7 +36,7 @@ final List<Amigo> amigos = [
     email: 'ana.garcia@example.com',
     numeroCelular: '+573005678901',
     foto: 'https://via.placeholder.com/150',
-    ordenesAsignadas: ['Orden 3', 'Orden 4'],
+    ordenesAsignadas: [],
   ),
   Amigo(
     nombre: 'Carlos',
@@ -39,7 +44,7 @@ final List<Amigo> amigos = [
     email: 'carlos.lopez@example.com',
     numeroCelular: '+573002345678',
     foto: 'https://via.placeholder.com/150',
-    ordenesAsignadas: ['Orden 5', 'Orden 6'],
+    ordenesAsignadas: [],
   ),
   Amigo(
     nombre: 'Jorge',
@@ -47,7 +52,7 @@ final List<Amigo> amigos = [
     email: 'jorge@example.com',
     numeroCelular: '+57300235678',
     foto: 'https://via.placeholder.com/150',
-    ordenesAsignadas: ['Orden 5', 'Orden 6'],
+    ordenesAsignadas: [],
   ),
   Amigo(
     nombre: 'Luis',
@@ -55,6 +60,6 @@ final List<Amigo> amigos = [
     email: 'luis@example.com',
     numeroCelular: '+573002341234',
     foto: 'https://via.placeholder.com/150',
-    ordenesAsignadas: ['Orden 5', 'Orden 6'],
+    ordenesAsignadas: [],
   ),
 ];
