@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ubicacion/modelos/amigos.dart';
+
+import '../modelos/ubicacion.dart';
 
 class UbiFotoScreen extends StatefulWidget {
   const UbiFotoScreen({super.key});
@@ -74,23 +77,51 @@ class _UbiFotoScreenState extends State<UbiFotoScreen> {
     });
   }
 
-  void _guardarUbicacion(context) {
-    if (_latitud == null ||
-        _longitud == null ||
-        _tituloController.text.isEmpty ||
-        _descripcionController.text.isEmpty ||
-        _amigoSeleccionado == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor completa todos los campos')),
-      );
-      return;
-    }
-
-    // Aquí agregarías la validación de radio y guardarías la ubicación
+ 
+void _guardarUbicacion(context) async {
+  if (_latitud == null ||
+      _longitud == null ||
+      _tituloController.text.isEmpty ||
+      _descripcionController.text.isEmpty ||
+      _amigoSeleccionado == null) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Ubicación guardada correctamente')),
+      const SnackBar(content: Text('Por favor completa todos los campos')),
     );
+    return;
   }
+
+  final ubicacion = Ubicacion(
+    titulo: _tituloController.text,
+    descripcion: _descripcionController.text,
+    latitud: _latitud!,
+    longitud: _longitud!,
+    fotos: _fotos,
+    amigoAsignado: '${_amigoSeleccionado!.nombre} ${_amigoSeleccionado!.apellido}',
+  );
+
+  final prefs = await SharedPreferences.getInstance();
+  final List<String> ubicacionesGuardadas =
+      prefs.getStringList('ubicaciones') ?? [];
+
+  // Agrega la nueva ubicación como JSON
+  ubicacionesGuardadas.add(jsonEncode(ubicacion.toJson()));
+  await prefs.setStringList('ubicaciones', ubicacionesGuardadas);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(content: Text('Ubicación guardada correctamente')),
+  );
+
+  // Limpia los campos después de guardar
+  setState(() {
+    _fotos.clear();
+    _latitud = null;
+    _longitud = null;
+    _tituloController.clear();
+    _descripcionController.clear();
+    _amigoSeleccionado = null;
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {

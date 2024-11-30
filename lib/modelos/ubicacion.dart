@@ -17,6 +17,29 @@ class Ubicacion {
     required this.amigoAsignado,
   });
 
+  Map<String, dynamic> toJson() {
+    return {
+      'titulo': titulo,
+      'descripcion': descripcion,
+      'latitud': latitud,
+      'longitud': longitud,
+      'fotos': fotos,
+      'amigoAsignado': amigoAsignado,
+    };
+  }
+
+  // Crear instancia desde JSON
+  factory Ubicacion.fromJson(Map<String, dynamic> json) {
+    return Ubicacion(
+      titulo: json['titulo'],
+      descripcion: json['descripcion'],
+      latitud: json['latitud'],
+      longitud: json['longitud'],
+      fotos: List<String>.from(json['fotos']),
+      amigoAsignado: json['amigoAsignado'],
+    );
+  }
+
   // Método para calcular la distancia entre dos ubicaciones usando la fórmula de Haversine
   static double calcularDistancia(double lat1, double lon1, double lat2, double lon2) {
     const radioTierra = 6371000; // Radio de la Tierra en metros
